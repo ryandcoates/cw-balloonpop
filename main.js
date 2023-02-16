@@ -1,7 +1,5 @@
 //#region buttons
-let startButton = document.getElementById('start-button');
-let inflateButton = document.getElementById('inflate-button');
-    inflateButton.setAttribute("disabled", true);
+
 //#endregion
 
 //#region  Game Logic
@@ -19,8 +17,8 @@ let currentPlayer;
 
 
 function startGame(){
-    inflateButton.removeAttribute("disabled");
-    startButton.setAttribute("disabled", true);
+    document.getElementById('main-controls').classList.add('hidden')
+    document.getElementById('game-controls').classList.remove('hidden')
     startClock();
     setTimeout(endGame, gameLength);
 }
@@ -70,8 +68,8 @@ function endGame(){
     currentPopCount = 0;
     height = 120;
     width = 100;
-    startButton.removeAttribute("disabled");
-    inflateButton.setAttribute("disabled", true);
+    document.getElementById('main-controls').classList.remove('hidden')
+    document.getElementById('game-controls').classList.add('hidden')
     stopClock();
     draw();
 }
@@ -81,12 +79,14 @@ function draw(){
     let clickCountElement = document.getElementById('click-count');
     let popCountElement = document.getElementById('pop-count');
     let highPopCountElement = document.getElementById('high-pop-count');
+    let playerNameElement = document.getElementById('player-name');
 
     clickCountElement.innerText = clickCount.toString();
     popCountElement.innerText = currentPopCount.toString();
     balloonElement.style.height = height +"px";
     balloonElement.style.width = width +"px";
     highPopCountElement.innerText = currentPlayer.topScore.toString();
+    playerNameElement.innerText = currentPlayer.name;
 
 }
 //#endregion
