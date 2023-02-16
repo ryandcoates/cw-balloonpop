@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Balloon Pop</title>
+</head>
+<body>
+<header>
+    <div class="container shadow">
+        <img src="balloon-pop-logo.png" alt="balloon pop logo">
+    </div>
+</header>
+
+<main class="container card">
+
+    <form id="player-form" onsubmit="setPlayer(event)">
+
+        <div>
+            <label for="name">Player Name:</label>
+            <input type="text" name="playerName" required>
+        </div>
+        <button type="submit">Ok</button>
+    </form>
+    <section id="game" class="game hidden">
+
+        <div>
+            <button onclick="changePlayer()">Change Player</button>
+        </div>
+        <button id="start-button" onclick="startGame()">Start Game</button>
+        <button id="inflate-button" onclick="inflate()">
+            Inflate
+            <span id="click-count"></span>
+        </button>
+
+        <div>
+            <span>Balloons Popped</span>
+            <span id="pop-count"></span>
+        </div>
+        <div>
+            <span>High Pop Count</span>
+            <span id="high-pop-count">0</span>
+        </div>
+        <div>
+            <span>Time Remaining</span>
+            <span id="countdown">0</span>
+        </div>
+        <div id="balloon" class="balloon"></div>
+    </section>
+</main>
+
+
+<script src="main.js"></script>
+</body>
+</html>
